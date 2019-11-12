@@ -2,8 +2,9 @@
 state("CorpseParty")
 {
 	int button_pointer : 0x32F054;
-	int startchapter1 : 0x044F2A0, 0x4, 0x40, 0x54, 0x4A0;
-	int startchapter2 : 0x044F2A0, 0x4, 0x4, 0x3F4, 0x44C, 0x434, 0x4A8;
+	int startchapter_1 : 0x2009534;
+	int startchapter_2 : 0x12D3544;
+	int startchapter_3 : 0x1633198;
 	int test : 0x55E2E8;
 	int end_chapter : 0x1CAF138;
 }
@@ -14,7 +15,7 @@ init{
 
 start
 {
-	if ((current.startchapter1 == 20 || current.startchapter2 == 20) && current.button_pointer == 52) {
+	if ((current.startchapter_1 == 0 && current.startchapter_2 == 0 && current.startchapter_3 == 0) && current.button_pointer == 52) {
 		vars.nb_split = 0;
 		return true;
 	}
